@@ -19,8 +19,10 @@ set -ex
 . `dirname ${0}`/bigtop.bom
 
 cat <<__EOT__ >> ivy/libraries.properties
+
 hbase.version=$HBASE_VERSION
-hive.version=$HIVE_VERSION
+# FIXME: the following like needs to be uncommented for an actual release
+# hive.version=$HIVE_VERSION
 zookeeper.version=$ZOOKEEPER_VERSION
 hadoop-common.version=$HADOOP_VERSION
 hadoop-hdfs.version=$HADOOP_VERSION
@@ -31,7 +33,7 @@ BUILD_OPTS="-Djavac.version=1.6 -Dforrest.home=${FORREST_HOME} -Dversion=${PIG_V
 
 rm test/org/apache/pig/test/TestHBaseStorage.java
 ant $BUILD_OPTS clean jar jar-withouthadoop pigunit-jar smoketests-jar "$@"
-for build_file in contrib/piggybank/java/build.xml contrib/penny/java/build.xml contrib/zebra/build.xml ; do
+for build_file in contrib/piggybank/java/build.xml contrib/zebra/build.xml ; do
   ant $BUILD_OPTS -buildfile $build_file clean jar "$@"
 done
 ant $BUILD_OPTS tar "$@"
