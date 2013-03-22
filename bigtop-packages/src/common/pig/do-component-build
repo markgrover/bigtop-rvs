@@ -21,7 +21,8 @@ set -ex
 cat <<__EOT__ >> ivy/libraries.properties
 
 hbase.version=$HBASE_VERSION
-hive.version=$HIVE_VERSION
+# FIXME: the following like needs to be uncommented for an actual release
+# hive.version=$HIVE_VERSION
 zookeeper.version=$ZOOKEEPER_VERSION
 hadoop-common.version=$HADOOP_VERSION
 hadoop-hdfs.version=$HADOOP_VERSION
