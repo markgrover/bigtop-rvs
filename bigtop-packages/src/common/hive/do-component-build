@@ -41,7 +41,7 @@ __EOT__
 # Workaround because renamed o.a.h.h.serde.Constants to o.a.h.h.serde.serdeConstants in a non-backwards compatible way in 0.10.0
 # This is being fixed via HIVE-4001. Please remove this workaround once that gets into a release (Hive 0.11?)
 mkdir -p src/serde/src/java/org/apache/hadoop/hive/serde
-cat > src/serde/src/java/org/apache/hadoop/hive/serde/Constants.java << __EOT__
+cat << '__EOT__' > src/serde/src/java/org/apache/hadoop/hive/serde/Constants.java
 package org.apache.hadoop.hive.serde;
 
 /**
