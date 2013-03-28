@@ -111,6 +111,7 @@ language called Pig Latin, which has the following key properties:
 %setup -n %{name}-%{pig_base_version}
 
 %build
+cp $RPM_SOURCE_DIR/build_contrib.xml .
 env PIG_BASE_VERSION=%{pig_base_version} bash %{SOURCE1}
 
 
