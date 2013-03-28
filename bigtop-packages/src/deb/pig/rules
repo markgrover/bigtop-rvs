@@ -29,6 +29,8 @@ pig_pkg_name=pig
 	dh $@
 
 override_dh_auto_build:
+	# FIXME: PIG-3262. When this JIRA gets committed and Bigtop pulls a build with the fix, remove the line below
+	cp debian/build_contrib.xml .
 	bash debian/do-component-build -Divy.home=${HOME}/.ivy2
 
 override_dh_auto_install:
